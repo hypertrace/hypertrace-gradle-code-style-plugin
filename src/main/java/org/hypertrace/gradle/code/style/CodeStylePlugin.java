@@ -17,7 +17,7 @@ public class CodeStylePlugin implements Plugin<Project> {
 
   private void configureCodeStyle(Project project) {
     PluginContainer pluginContainer = project.getPlugins();
-    pluginContainer.apply(SpotlessPlugin.class).apply(project);
+    pluginContainer.apply(SpotlessPlugin.class);
 
     SpotlessExtension spotlessExtension =
         project.getExtensions().getByType(SpotlessExtension.class);
