@@ -11,7 +11,6 @@ Add the following snippet to the project's build.gradle.kts
 
 ```kotlin
 plugins {
-  jacoco
   id("org.hypertrace.code-style-plugin") version "<version>"
 }
 ```
