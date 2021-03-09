@@ -33,7 +33,7 @@ public class CodeStylePlugin implements Plugin<Project> {
           format.target("src/**/*.java");
         });
 
-    spotlessExtension.kotlin(
+    spotlessExtension.kotlinGradle(
         format -> format
             .ktlint()
             .userData(
