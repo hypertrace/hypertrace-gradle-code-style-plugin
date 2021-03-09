@@ -48,6 +48,7 @@ public class CodeStylePlugin implements Plugin<Project> {
         "misc,",
         format -> {
           format.target("*.md", "**/*.proto", ".gitignore");
+          format.targetExclude("build/**/*.proto");
           format.indentWithSpaces();
           format.trimTrailingWhitespace();
           format.endWithNewline();
