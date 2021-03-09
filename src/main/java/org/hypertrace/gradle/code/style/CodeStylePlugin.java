@@ -2,7 +2,7 @@ package org.hypertrace.gradle.code.style;
 
 import com.diffplug.gradle.spotless.SpotlessExtension;
 import com.diffplug.gradle.spotless.SpotlessPlugin;
-import java.util.Map;
+import java.util.HashMap;
 import javax.annotation.Nonnull;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
@@ -34,9 +34,15 @@ public class CodeStylePlugin implements Plugin<Project> {
         });
 
     spotlessExtension.kotlin(
-        format -> {
-          format.ktlint().userData(Map.of("indent_size", "2", "continuation_indent_size", "2"));
-        });
+        format -> format
+            .ktlint()
+            .userData(
+                new HashMap<String, String>() {
+                  {
+                    put("indent_size", "2");
+                    put("continuation_indent_size", "2");
+                  }
+                }));
 
     spotlessExtension.format(
         "misc,",
