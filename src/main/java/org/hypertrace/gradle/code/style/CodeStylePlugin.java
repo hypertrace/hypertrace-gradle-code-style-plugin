@@ -1,12 +1,14 @@
 package org.hypertrace.gradle.code.style;
 
+import com.diffplug.gradle.spotless.KotlinGradleExtension;
 import com.diffplug.gradle.spotless.SpotlessExtension;
 import com.diffplug.gradle.spotless.SpotlessPlugin;
-import java.util.HashMap;
-import javax.annotation.Nonnull;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.PluginContainer;
+
+import javax.annotation.Nonnull;
+import java.util.HashMap;
 
 public class CodeStylePlugin implements Plugin<Project> {
 
@@ -34,15 +36,7 @@ public class CodeStylePlugin implements Plugin<Project> {
         });
 
     spotlessExtension.kotlinGradle(
-        format -> format
-            .ktlint()
-            .userData(
-                new HashMap<String, String>() {
-                  {
-                    put("indent_size", "2");
-                    put("continuation_indent_size", "2");
-                  }
-                }));
+        KotlinGradleExtension::ktfmt);
 
     spotlessExtension.format(
         "misc,",
