@@ -8,7 +8,6 @@ import org.gradle.api.Project;
 import org.gradle.api.plugins.PluginContainer;
 
 import javax.annotation.Nonnull;
-import java.util.HashMap;
 
 public class CodeStylePlugin implements Plugin<Project> {
 
