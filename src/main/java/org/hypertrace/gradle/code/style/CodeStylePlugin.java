@@ -35,7 +35,7 @@ public class CodeStylePlugin implements Plugin<Project> {
 
     spotlessExtension.kotlinGradle(
         format -> format
-            .ktlint()
+            .ktlint("0.41.0")
             .userData(
                 new HashMap<String, String>() {
                   {
