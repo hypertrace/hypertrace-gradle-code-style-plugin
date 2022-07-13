@@ -34,22 +34,20 @@ public class CodeStylePlugin implements Plugin<Project> {
         });
 
     spotlessExtension.kotlinGradle(
-        format -> format
-            .ktlint("0.41.0")
-            .userData(
-                new HashMap<String, String>() {
-                  {
-                    put("indent_size", "2");
-                    put("continuation_indent_size", "2");
-                  }
-                }));
-
+        format ->
+            format
+                .ktlint("0.46.1")
+                .editorConfigOverride(
+                    new HashMap<String, Object>() {
+                      {
+                        put("indent_size", "2");
+                      }
+                    }));
     spotlessExtension.format(
-        "misc,",
+        "misc",
         format -> {
-          format.target("*.md", "**/*.proto", ".gitignore");
-          format.targetExclude("build/**/*.proto");
-          format.indentWithSpaces();
+          format.target("*.md", "src/**/*.proto", ".gitignore");
+          format.indentWithSpaces(2);
           format.trimTrailingWhitespace();
           format.endWithNewline();
         });
