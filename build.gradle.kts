@@ -4,7 +4,7 @@ plugins {
   `java-gradle-plugin`
   id("org.hypertrace.repository-plugin") version "0.4.0"
   id("org.hypertrace.ci-utils-plugin") version "0.3.0"
-  id("org.hypertrace.publish-plugin") version "1.0.2"
+  id("org.hypertrace.publish-plugin") version "1.0.4"
 }
 
 group = "org.hypertrace.gradle.code.style"
@@ -15,7 +15,7 @@ java {
 }
 
 dependencies {
-  api("com.diffplug.spotless:spotless-plugin-gradle:5.11.1")
+  api("com.diffplug.spotless:spotless-plugin-gradle:6.8.0")
 }
 
 gradlePlugin {
