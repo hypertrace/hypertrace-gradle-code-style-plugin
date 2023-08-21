@@ -5,6 +5,7 @@ plugins {
   id("org.hypertrace.repository-plugin") version "0.4.0"
   id("org.hypertrace.ci-utils-plugin") version "0.3.0"
   id("org.hypertrace.publish-plugin") version "1.0.4"
+  id("org.owasp.dependencycheck") version "8.4.0"
 }
 
 group = "org.hypertrace.gradle.code.style"
@@ -16,6 +17,9 @@ java {
 
 dependencies {
   api("com.diffplug.spotless:spotless-plugin-gradle:6.20.0")
+  constraints {
+    implementation("com.squareup.okio:okio:3.4.0")
+  }
 }
 
 gradlePlugin {
@@ -29,4 +33,11 @@ gradlePlugin {
 
 hypertracePublish {
   license.set(APACHE_2_0)
+}
+
+dependencyCheck {
+  format = org.owasp.dependencycheck.reporting.ReportGenerator.Format.ALL.toString()
+  suppressionFile = "owasp-suppressions.xml"
+  scanConfigurations.add("runtimeClasspath")
+  failBuildOnCVSS = 3.0F
 }
