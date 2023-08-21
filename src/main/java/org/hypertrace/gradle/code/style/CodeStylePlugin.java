@@ -2,6 +2,8 @@ package org.hypertrace.gradle.code.style;
 
 import com.diffplug.gradle.spotless.SpotlessExtension;
 import com.diffplug.gradle.spotless.SpotlessPlugin;
+
+import java.io.IOException;
 import java.util.HashMap;
 import javax.annotation.Nonnull;
 import org.gradle.api.Plugin;
@@ -35,14 +37,20 @@ public class CodeStylePlugin implements Plugin<Project> {
 
     spotlessExtension.kotlinGradle(
         format ->
-            format
-                .ktlint("0.46.1")
-                .editorConfigOverride(
-                    new HashMap<String, Object>() {
-                      {
-                        put("indent_size", "2");
-                      }
-                    }));
+        {
+            try {
+                format
+                    .ktlint("0.50.0")
+                    .editorConfigOverride(
+                        new HashMap<String, Object>() {
+                          {
+                            put("indent_size", "2");
+                          }
+                        });
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     spotlessExtension.format(
         "misc",
         format -> {

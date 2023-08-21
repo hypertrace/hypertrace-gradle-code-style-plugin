@@ -10,12 +10,12 @@ plugins {
 group = "org.hypertrace.gradle.code.style"
 
 java {
-  targetCompatibility = JavaVersion.VERSION_1_8
-  sourceCompatibility = JavaVersion.VERSION_1_8
+  targetCompatibility = JavaVersion.VERSION_11
+  sourceCompatibility = JavaVersion.VERSION_11
 }
 
 dependencies {
-  api("com.diffplug.spotless:spotless-plugin-gradle:6.8.0")
+  api("com.diffplug.spotless:spotless-plugin-gradle:6.20.0")
 }
 
 gradlePlugin {
