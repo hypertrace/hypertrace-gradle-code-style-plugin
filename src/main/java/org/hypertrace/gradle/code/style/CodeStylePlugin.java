@@ -54,7 +54,7 @@ public class CodeStylePlugin implements Plugin<Project> {
     spotlessExtension.format(
         "misc",
         format -> {
-          format.target("*.md", "src/**/*.proto", ".gitignore");
+          format.target("*.md", "src/**/*.proto", ".gitignore", "*.yaml");
           format.indentWithSpaces(2);
           format.trimTrailingWhitespace();
           format.endWithNewline();
