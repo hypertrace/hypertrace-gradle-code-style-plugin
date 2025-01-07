@@ -6,6 +6,7 @@ plugins {
   id("org.hypertrace.ci-utils-plugin") version "0.3.0"
   id("org.hypertrace.publish-plugin") version "1.0.4"
   id("org.owasp.dependencycheck") version "8.4.0"
+  id("com.diffplug.spotless") version "7.0.0"
 }
 
 group = "org.hypertrace.gradle.code.style"
@@ -16,12 +17,8 @@ java {
 }
 
 dependencies {
-  api("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
-  constraints {
-    implementation("com.squareup.okio:okio:3.4.0")
-    implementation("org.eclipse.jgit:org.eclipse.jgit:6.8.0.202311291450-r")
-    implementation("org.eclipse.platform:org.eclipse.osgi:3.18.500")
-  }
+  api("com.diffplug.spotless:spotless-plugin-gradle:7.0.0")
+  implementation("build.buf:buf-gradle-plugin:0.10.0")
 }
 
 gradlePlugin {
@@ -42,4 +39,15 @@ dependencyCheck {
   suppressionFile = "owasp-suppressions.xml"
   scanConfigurations.add("runtimeClasspath")
   failBuildOnCVSS = 3.0F
+}
+
+spotless {
+  java {
+    importOrder()
+    removeUnusedImports()
+    googleJavaFormat("1.17.0")
+  }
+  kotlin {
+    ktlint()
+  }
 }
