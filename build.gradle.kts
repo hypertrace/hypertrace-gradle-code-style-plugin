@@ -4,9 +4,9 @@ plugins {
   `java-gradle-plugin`
   id("org.hypertrace.repository-plugin") version "0.4.0"
   id("org.hypertrace.ci-utils-plugin") version "0.3.0"
+  id("org.hypertrace.code-style-plugin") version "latest.release"
   id("org.hypertrace.publish-plugin") version "1.0.4"
   id("org.owasp.dependencycheck") version "8.4.0"
-  id("com.diffplug.spotless") version "7.0.0"
 }
 
 group = "org.hypertrace.gradle.code.style"
@@ -39,15 +39,4 @@ dependencyCheck {
   suppressionFile = "owasp-suppressions.xml"
   scanConfigurations.add("runtimeClasspath")
   failBuildOnCVSS = 3.0F
-}
-
-spotless {
-  java {
-    importOrder()
-    removeUnusedImports()
-    googleJavaFormat("1.17.0")
-  }
-  kotlin {
-    ktlint()
-  }
 }
