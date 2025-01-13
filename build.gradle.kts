@@ -4,7 +4,7 @@ plugins {
   `java-gradle-plugin`
   id("org.hypertrace.repository-plugin") version "0.4.0"
   id("org.hypertrace.ci-utils-plugin") version "0.3.0"
-  id("org.hypertrace.code-style-plugin") version "latest.release"
+  id("org.hypertrace.code-style-plugin") version "2.0.1"
   id("org.hypertrace.publish-plugin") version "1.0.4"
   id("org.owasp.dependencycheck") version "8.4.0"
 }

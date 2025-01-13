@@ -12,7 +12,6 @@ import javax.annotation.Nonnull;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.PluginContainer;
-import org.gradle.api.provider.Provider;
 
 public class CodeStylePlugin implements Plugin<Project> {
 
@@ -50,24 +49,18 @@ public class CodeStylePlugin implements Plugin<Project> {
         });
 
     BufExtension bufExtension = project.getExtensions().getByType(BufExtension.class);
-    Provider<File> bufBinaryProvider =
-        project.provider(
-            () -> {
-              File binary =
-                  project
-                      .getConfigurations()
-                      .getByName(BufSupportKt.BUF_BINARY_CONFIGURATION_NAME)
-                      .getSingleFile();
-              if (!binary.canExecute()) {
-                binary.setExecutable(true);
-              }
-              return binary;
-            });
     spotlessExtension.protobuf(
-        format ->
-            format
-                .buf(bufExtension.getToolVersion())
-                .pathToExe(bufBinaryProvider.get().getAbsolutePath()));
+        format -> {
+          File bufBinary =
+              project
+                  .getConfigurations()
+                  .getByName(BufSupportKt.BUF_BINARY_CONFIGURATION_NAME)
+                  .getSingleFile();
+          if (!bufBinary.canExecute()) {
+            bufBinary.setExecutable(true);
+          }
+          format.buf(bufExtension.getToolVersion()).pathToExe(bufBinary.getAbsolutePath());
+        });
     bufExtension.setEnforceFormat(false);
 
     spotlessExtension.format(
