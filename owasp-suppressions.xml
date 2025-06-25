@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
-    <suppress>
-        <packageUrl regex="true">^pkg:maven/org\.eclipse\.platform/org\.eclipse\.osgi@.*$</packageUrl>
-        <cpe>cpe:/a:eclipse:equinox</cpe>
-    </suppress>
+  <suppress>
+    <packageUrl regex="true">^pkg:maven/org\.eclipse\.platform/org\.eclipse\.osgi@.*$</packageUrl>
+    <cpe>cpe:/a:eclipse:equinox</cpe>
+    <cpe>cpe:/a:eclipse:platform</cpe>
+  </suppress>
 </suppressions>
