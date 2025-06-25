@@ -16,11 +16,9 @@ java {
 }
 
 dependencies {
-  api("com.diffplug.spotless:spotless-plugin-gradle:6.25.0")
+  api("com.diffplug.spotless:spotless-plugin-gradle:7.0.4")
   constraints {
-    implementation("com.squareup.okio:okio:3.4.0")
-    implementation("org.eclipse.jgit:org.eclipse.jgit:6.8.0.202311291450-r")
-    implementation("org.eclipse.platform:org.eclipse.osgi:3.18.500")
+    implementation("org.eclipse.jgit:org.eclipse.jgit:7.3.0.202506031305-r")
   }
 }
 
