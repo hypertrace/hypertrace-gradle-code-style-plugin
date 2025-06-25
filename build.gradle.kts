@@ -2,10 +2,10 @@ import org.hypertrace.gradle.publishing.License.APACHE_2_0
 
 plugins {
   `java-gradle-plugin`
-  id("org.hypertrace.repository-plugin") version "0.4.0"
-  id("org.hypertrace.ci-utils-plugin") version "0.3.0"
-  id("org.hypertrace.publish-plugin") version "1.0.4"
-  id("org.owasp.dependencycheck") version "8.4.0"
+  id("org.hypertrace.repository-plugin") version "0.5.0"
+  id("org.hypertrace.ci-utils-plugin") version "0.4.0"
+  id("org.hypertrace.publish-plugin") version "1.1.1"
+  id("org.owasp.dependencycheck") version "12.1.0"
 }
 
 group = "org.hypertrace.gradle.code.style"
