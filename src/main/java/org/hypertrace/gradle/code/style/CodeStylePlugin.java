@@ -55,7 +55,7 @@ public class CodeStylePlugin implements Plugin<Project> {
         "misc",
         format -> {
           format.target("*.md", "src/**/*.proto", ".gitignore", "*.yaml");
-          format.leadingSpacesToTabs(2);
+          format.leadingTabsToSpaces(2);
           format.trimTrailingWhitespace();
           format.endWithNewline();
         });
