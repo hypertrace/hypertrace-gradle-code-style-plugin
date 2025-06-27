@@ -40,7 +40,7 @@ public class CodeStylePlugin implements Plugin<Project> {
         {
             try {
                 format
-                    .ktlint("0.50.0")
+                    .ktlint("1.6.0")
                     .editorConfigOverride(
                         new HashMap<String, Object>() {
                           {
